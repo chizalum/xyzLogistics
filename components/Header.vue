@@ -16,17 +16,17 @@
             <div class="orderDD" v-if="show">
               <vr class="verticalrule"></vr>
               <div class="orderview">
-                <nuxt-link to="/" class="orderitems" @click="changeFirst()">
-                  <img :src="firstorder[firstOrderNo]">
+                <nuxt-link to="/" @click.native="changeFirst()">
+                  <img :src="firstorder[firstOrderNo]" :class="{ordersclick: ordersActive}" class="orderitems1">
                 </nuxt-link>
-                <nuxt-link to="/" class="orderitems" @click="changeSecond()">
-                  <img :src="secondorder[secondOrderNo]">
+                <nuxt-link to="/" @click.native="changeSecond()">
+                  <img :src="secondorder[secondOrderNo]" :class="{ordersclick1: ordersActive1}" class="orderitems2">
                 </nuxt-link>
-                <nuxt-link to="/" class="orderitems" @click="changeThird()">
-                   <img :src="thirdorder[thirdOrderNo]">
+                <nuxt-link to="/" @click.native="changeThird()">
+                   <img :src="thirdorder[thirdOrderNo]" :class="{ordersclick2: ordersActive2}" class="orderitems3">
                 </nuxt-link>
-                <nuxt-link to="/" class="orderitems" @click="changeFourth()"> 
-                   <img :src="fourthorder[fourthOrderNo]">
+                <nuxt-link to="/" @click.native="changeFourth()"> 
+                   <img :src="fourthorder[fourthOrderNo]" :class="{ordersclick3: ordersActive3}" class="orderitems4">
                 </nuxt-link>
               </div>
             </div>
@@ -43,14 +43,14 @@
             <div class="orderDD" v-if="view">
               <vr class="verticalrule1"></vr>
               <div class="orderview">
-                <nuxt-link to="/" class="vehicleitems">
-                  <img src="Vans.png">
+                <nuxt-link to="/" @click.native="changeVan()">
+                  <img :src="firstvehicle[firstVehicleNo]" class="vehicleitems" :class="{vehicleclick1: vehicleActive1}">
                 </nuxt-link>
-                <nuxt-link to="/" class="vehicleitems">
-                  <img src="Trucks.png">
+                <nuxt-link to="/" @click.native="changeTruck()">
+                  <img :src="secondvehicle[secondVehicleNo]" class="vehicleitems" :class="{vehicleclick2: vehicleActive2}">
                 </nuxt-link>
-                <nuxt-link to="/" class="vehicleitems">
-                   <img src="Bikes.png">
+                <nuxt-link to="/" @click.native="changeBike()">
+                   <img :src="thirdvehicle[thirdVehicleNo]" class="vehicleitems" :class="{vehicleclick3: vehicleActive3}">
                 </nuxt-link>
               </div>
             </div>  
@@ -81,17 +81,30 @@ export default {
       vehiclesCurrent: 0,
       settingsimage: ['settings.png', 'settingsActive.png'],
       settingsCurrent: 0,
-      settingssActive: false,
+      settingsActive: false,
       show: false,
       view: false,
       firstorder: ['Activeorders.png', 'activeOrdersLive.png'],
       firstOrderNo: 0,
       secondorder: ['Delivered.png', 'deliveredLive.png'],
       secondOrderNo: 0,
-      thirdorder: ['PendingOrders.png','reqestsLive.png'],
+      thirdorder: ['PendingOrders.png','requestsLive.png'],
       thirdOrderNo: 0,
       fourthorder: ['Cancelled.png', 'cancelledLive.png'],
       fourthOrderNo: 0,
+      ordersActive: false,
+      ordersActive1: false,
+      ordersActive2: false,
+      ordersActive3: false,
+      firstvehicle: ['Vans.png', 'vansActive.png'],
+      firstVehicleNo: 0,
+      secondvehicle: ['Trucks.png', 'trucksActive.png'],
+      secondVehicleNo: 0,
+      thirdvehicle: ['Bikes.png', 'bikesActive.png'],
+      thirdVehicleNo: 0,
+      vehicleActive1: false,
+      vehicleActive2: false,
+      vehicleActive3: false,
     }
   },
 
@@ -102,7 +115,13 @@ export default {
     }else{
            this.orderCurrent= 0
     };
-    this.show = !this.show
+    this.settingsActive = false;
+    this.agentsActive = false;
+    this.view = false;
+    this.show = !this.show;
+    this.agentsCurrent= 0;
+    this.vehiclesCurrent= 0;
+    this.settingsCurrent= 0
 },
 
     changeAgents(){
@@ -112,6 +131,12 @@ export default {
            this.agentsCurrent= 0
     };
     this.agentsActive = !this.agentsActive;
+    this.settingsActive = false;
+    this.show = false;
+    this.view = false;
+    this.orderCurrent= 0;
+    this.vehiclesCurrent= 0;
+    this.settingsCurrent= 0
   },
 
     changeVehicles(){
@@ -120,7 +145,13 @@ export default {
     }else{
            this.vehiclesCurrent= 0
     };
-    this.view = !this.view
+    this.settingsActive = false;
+    this.agentsActive = false;
+    this.show = false;
+    this.view = !this.view;
+    this.agentsCurrent= 0;
+    this.orderCurrent= 0;
+    this.settingsCurrent= 0
   },
 
    changeSettings(){
@@ -130,6 +161,12 @@ export default {
            this.settingsCurrent= 0
     };
     this.settingsActive = !this.settingsActive;
+    this.show = false;
+    this.view = false;
+    this.agentsActive = false;
+    this.agentsCurrent= 0;
+    this.vehiclesCurrent= 0;
+    this.orderCurrent= 0
   },
    
    changeFirst(){
@@ -138,6 +175,97 @@ export default {
     }else{
            this.firstOrderNo= 0
     };
+    this.ordersActive = !this.ordersActive;
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.secondOrderNo = 0;
+    this.thirdOrderNo = 0;
+    this.fourthOrderNo = 0;
+  },
+
+  changeSecond(){
+        if(this.secondOrderNo < this.secondorder.length-1){
+            this.secondOrderNo++
+    }else{
+           this.secondOrderNo= 0
+    };
+    this.ordersActive1 = !this.ordersActive1;
+    this.ordersActive = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.firstOrderNo = 0;
+    this.thirdOrderNo = 0;
+    this.fourthOrderNo = 0;
+  },
+
+  changeThird(){
+        if(this.thirdOrderNo < this.thirdorder.length-1){
+            this.thirdOrderNo++
+    }else{
+           this.thirdOrderNo= 0
+    };
+    this.ordersActive2 = !this.ordersActive2;
+    this.ordersActive1 = false;
+    this.ordersActive = false;
+    this.ordersActive3 = false;
+    this.firstOrderNo = 0;
+    this.secondOrderNo = 0;
+    this.fourthOrderNo = 0;
+  },
+
+  changeFourth(){
+        if(this.fourthOrderNo < this.fourthorder.length-1){
+            this.fourthOrderNo++
+    }else{
+           this.fourthOrderNo= 0
+    };
+    this.ordersActive3 = !this.ordersActive3;
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive = false;
+    this.secondOrderNo = 0;
+    this.firstOrderNo = 0;
+    this.thirdOrderNo = 0;
+  },
+
+  changeVan(){
+        if(this.firstVehicleNo < this.firstvehicle.length-1){
+            this.firstVehicleNo++
+    }else{
+           this.firstVehicleNo= 0
+    };
+    this.vehicleActive1 = !this.vehicleActive1;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = false;
+    this.secondVehicleNo = 0;
+    this.thirdVehicleNo = 0;
+  },
+
+  changeTruck(){
+        if(this.secondVehicleNo < this.secondvehicle.length-1){
+            this.secondVehicleNo++
+    }else{
+           this.secondVehicleNo= 0
+    };
+    this.vehicleActive2 = !this.vehicleActive2;
+    this.vehicleActive1 = false;
+    this.vehicleActive3 = false;
+    this.firstVehicleNo = 0;
+    this.thirdVehicleNo = 0;
+  },
+
+  changeBike(){
+        if(this.thirdVehicleNo < this.thirdvehicle.length-1){
+            this.thirdVehicleNo++
+    }else{
+           this.thirdVehicleNo= 0
+    };
+    this.vehicleActive3 = !this.vehicleActive3;
+    this.vehicleActive2 = false;
+    this.vehicleActive1 = false;
+    this.secondVehicleNo = 0;
+    this.firstVehicleNo = 0;
   },
  },
 }
@@ -148,11 +276,11 @@ export default {
   width: 320px;
   height: 100%;
   background-color: #ffffff;
-  position: fixed;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
+  position: absolute;
 }
 
 .logo{
@@ -253,46 +381,67 @@ border: 1px solid #F3F3F3;
   flex-direction: column;
 }
 
-.orderitems{
+.orderitems1{
   margin: 20px auto 0 110px;
 }
 
-.orderitems:nth-child(1){
-  height: 24px;
-  width: 102px;
+.orderitems2{
+  margin: 20px auto 0 110px;
 }
 
-.orderitems:nth-child(2){
-  height: 24px;
-  width: 70px;
+.orderitems3{
+  margin: 20px auto 0 110px;
 }
 
-.orderitems:nth-child(3){
-  height: 24px;
-  width: 115px;
-}
-
-.orderitems:nth-child(4){
-  height: 24px;
-  width: 74px;
+.orderitems4{
+  margin: 20px auto 0 110px;
 }
 
 .vehicleitems{
   margin: 20px auto 0 110px;
 }
 
-.vehicleitems:nth-child(1){
-  height: 24px;
-  width: 36px;
+
+
+.ordersclick{
+  width: 215px;
+  height: 56px;
+  margin-left: 63px;
 }
 
-.orderitems:nth-child(2){
-  height: 24px;
-  width: 48px;
+.ordersclick1{
+  width: 215px;
+  height: 56px;
+  margin-left: 63px;
 }
 
-.orderitems:nth-child(3){
-  height: 24px;
-  width: 39px;
+.ordersclick2{
+  width: 215px;
+  height: 56px;
+  margin-left: 63px;
+}
+
+.ordersclick3{
+  width: 215px;
+  height: 56px;
+  margin-left: 63px;
+}
+
+.vehicleclick1{
+  width: 215px;
+  height: 56px;
+  margin-left: 63px;
+}
+
+.vehicleclick2{
+  width: 215px;
+  height: 56px;
+  margin-left: 63px;
+}
+
+.vehicleclick3{
+  width: 215px;
+  height: 56px;
+  margin-left: 63px;
 }
 </style>
