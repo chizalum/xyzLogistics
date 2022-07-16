@@ -9,24 +9,24 @@
           <nuxt-link to="/" class="dashboardtext" :class="{ dashboardtext2: isActive1 }">Dashboard</nuxt-link>
         </div>
         <div>
-            <div class="navitem2" @click="changeOrder()" :class="{ activenav2: activeBar2 }">
+            <div class="navitem2" @click="changeOrder()">
               <img :src="orderimage[orderCurrent]" alt="orders" class="ordersimg">
               <nuxt-link to="/" class="orderstext" :class="{ orderstext2: isActive2 }">Orders</nuxt-link>
             </div>
             <div class="orderDD" v-if="show">
               <vr class="verticalrule"></vr>
               <div class="orderview">
-                <nuxt-link to="/" @click.native="changeFirst()"  class="orderitems1">
-                  Active Orders
+                <nuxt-link to="/" @click.native="changeFirst()"  class="orderitems1" :class="{ordersclick1: ordersActive1}">
+                  <span class="vtext">Active Orders</span>
                 </nuxt-link>
-                <nuxt-link to="/" @click.native="changeSecond()" class="orderitems2">
-                  Delivered
+                <nuxt-link to="/" @click.native="changeSecond()" class="orderitems2" :class="{ordersclick2: ordersActive2}">
+                  <span class="vtext">Delivered</span>
                 </nuxt-link>
-                <nuxt-link to="/" @click.native="changeThird()" class="orderitems3">
-                   Pending Orders
+                <nuxt-link to="/" @click.native="changeThird()" class="orderitems3" :class="{ordersclick3: ordersActive3}">
+                   <span class="vtext">Pending Orders</span>
                 </nuxt-link>
-                <nuxt-link to="/" @click.native="changeFourth()" class="orderitems4"> 
-                  Cancelled
+                <nuxt-link to="/" @click.native="changeFourth()" class="orderitems4" :class="{ordersclick4: ordersActive4}"> 
+                  <span class="vtext">Cancelled</span>
                 </nuxt-link>
               </div>
             </div>
@@ -36,26 +36,26 @@
           <nuxt-link to="/" class="agentstext" :class="{ agentstext2: isActive3 }">Agents</nuxt-link>
         </div>
         <div>    
-            <div class="navitem4" @click="changeVehicles()" :class="{ activenav4: activeBar4 }">
+            <div class="navitem4" @click="changeVehicles()">
               <img :src="vehiclesimage[vehiclesCurrent]" alt="vehicles" class="vehiclesimg">
               <nuxt-link to="/" class="vehiclestext" :class="{ vehiclestext2: isActive4 }">Vehicles</nuxt-link>
             </div>
             <div class="orderDD" v-if="view">
               <vr class="verticalrule1"></vr>
               <div class="orderview">
-                <nuxt-link to="/" @click.native="changeVan()" class="vehicleitems" :class="{vehicleclick3: vehicleActive3}">
-                  Vans
+                <nuxt-link to="/" @click.native="changeVan()" class="vehicleitem1" :class="{vehicleclick1: vehicleActive1}">
+                  <span class="vtext">Vans</span>
                 </nuxt-link>
-                <nuxt-link to="/" @click.native="changeTruck()" class="vehicleitems" :class="{vehicleclick3: vehicleActive3}">
-                  Trucks
+                <nuxt-link to="/" @click.native="changeTruck()" class="vehicleitem2" :class="{vehicleclick2: vehicleActive2}">
+                  <span class="vtext">Trucks</span>
                 </nuxt-link>
-                <nuxt-link to="/" @click.native="changeBike()" class="vehicleitems" :class="{vehicleclick3: vehicleActive3}">
-                   Bikes
+                <nuxt-link to="/" @click.native="changeBike()" class="vehicleitem3" :class="{vehicleclick3: vehicleActive3}">
+                   <span class="vtext">Bikes</span>
                 </nuxt-link>
               </div>
             </div>  
         </div>    
-            <hr class="siderule"> 
+            <hr class="siderule1"> 
         <div class="navitem5" @click="changeSettings()" :class="{ activenav5: activeBar5 }">
            <img :src="settingsimage[settingsCurrent]" alt="settings" class="settingsimg">
            <nuxt-link to="/" class="settingstext" :class="{ settingstext2: isActive5 }">Settings</nuxt-link>
@@ -88,15 +88,17 @@ export default {
       vehicleActive1: false,
       vehicleActive2: false,
       vehicleActive3: false,
+      ordersActive1: false,
+      ordersActive2: false,
+      ordersActive3: false,
+      ordersActive4: false,
       isActive1: false,
       isActive2: false,
       isActive3: false,
       isActive4: false,
       isActive5: false,
       activeBar1: true,
-      activeBar2: false,
       activeBar3: false,
-      activeBar4: false,
       activeBar5: false,
     }
   },
@@ -118,10 +120,9 @@ export default {
     this.isActive4 = false;
     this.isActive5 = false;
     this.activeBar1 = true;
-    this.activeBar2 = false;
     this.activeBar3 = false;
-    this.activeBar4 = false;
     this.activeBar5 = false;
+    this.closeSub();
 },
 
     changeOrder(){
@@ -143,10 +144,8 @@ export default {
     this.isActive3 = false;
     this.isActive4 = false;
     this.isActive5 = false;
-    this.activeBar2 = !this.activeBar2;
     this.activeBar1 = false;
     this.activeBar3 = false;
-    this.activeBar4 = false;
     this.activeBar5 = false;
 },
 
@@ -167,9 +166,8 @@ export default {
     this.isActive5 = false;
     this.activeBar3 = true;
     this.activeBar1 = false;
-    this.activeBar2 = false;
-    this.activeBar4 = false;
     this.activeBar5 = false;
+    this.closeSub();
   },
 
     changeVehicles(){
@@ -191,10 +189,8 @@ export default {
     this.isActive2 = false;
     this.isActive3 = false;
     this.isActive5 = false;
-    this.activeBar4 = !this.activeBar4;
     this.activeBar1 = false;
     this.activeBar3 = false;
-    this.activeBar2 = false;
     this.activeBar5 = false;
   },
 
@@ -216,20 +212,87 @@ export default {
     this.activeBar5 = true;
     this.activeBar1 = false;
     this.activeBar3 = false;
-    this.activeBar4 = false;
-    this.activeBar2 = false;
+    this.closeSub();
   },
 
   changeVan(){
-        
+    this.vehicleActive1 = true;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = false;
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.ordersActive4 = false;
   },
 
   changeTruck(){
-        
+    this.vehicleActive1 = false;
+    this.vehicleActive2 = true;
+    this.vehicleActive3 = false;
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.ordersActive4 = false;    
   },
 
   changeBike(){
-        
+    this.vehicleActive1 = false;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = true;  
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.ordersActive4 = false;  
+  },
+
+  changeFirst(){
+    this.ordersActive1 = true;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.ordersActive4 = false;
+    this.vehicleActive1 = false;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = false;
+  },
+
+  changeSecond(){
+    this.ordersActive1 = false;
+    this.ordersActive2 = true;
+    this.ordersActive3 = false;
+    this.ordersActive4 = false;
+    this.vehicleActive1 = false;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = false;
+  },
+
+  changeThird(){
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = true;
+    this.ordersActive4 = false;
+    this.vehicleActive1 = false;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = false;
+  },
+
+  changeFourth(){
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.ordersActive4 = true;
+    this.vehicleActive1 = false;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = false;
+  },
+
+  closeSub(){
+    this.ordersActive1 = false;
+    this.ordersActive2 = false;
+    this.ordersActive3 = false;
+    this.ordersActive4 = false;
+    this.vehicleActive1 = false;
+    this.vehicleActive2 = false;
+    this.vehicleActive3 = false;
   },
  },
 }
@@ -260,6 +323,13 @@ export default {
 width: 100%;
 color: #f3f3f3;
 border: 1px solid #F3F3F3;
+}
+
+.siderule1{
+width: 100%;
+color: #f3f3f3;
+border: 1px solid #F3F3F3;
+margin-top: 26px;
 }
 
 .navbar{
@@ -297,7 +367,7 @@ border: 1px solid #F3F3F3;
 
 
 .navitem4{
-  margin: 0 0 24px 24px;
+  margin: 0 0 0 24px;
   display: flex;
   flex-direction: row;
   background: #FFFFFF;
@@ -316,28 +386,18 @@ border: 1px solid #F3F3F3;
 }
 
 .activenav1{
-  background-image: linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
-  background:-webkit-linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
-}
-
-.activenav2{
-  background-image: linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
-  background:-webkit-linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
 }
 
 .activenav3{
-  background-image: linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
-  background:-webkit-linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
-}
-
-.activenav4{
-  background-image: linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
-  background:-webkit-linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
 }
 
 .activenav5{
-  background-image: linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
-  background:-webkit-linear-gradient(to right, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
 }
 .dashboardimg{
   width: 25px;
@@ -456,7 +516,7 @@ text-decoration: none;
 
 .verticalrule{
   width: 2px;
-  height: 180px;
+  height: 220px;
   background: #C8C8C8;
   margin-left: 65px;
   position: absolute;
@@ -464,7 +524,7 @@ text-decoration: none;
 
 .verticalrule1{
   width: 2px;
-  height: 118px;
+  height: 169px;
   background: #C8C8C8;
   margin-left: 65px;
   position: absolute;
@@ -476,96 +536,142 @@ text-decoration: none;
 }
 
 .orderitems1{
-  margin: 20px auto 0 110px;
+  margin: 0 auto 0 64px;
+  text-decoration: none;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 56px;
   color: #666666;
+  width: 215px;
+  height: 56px;
 }
 
 .orderitems2{
-  margin: 20px auto 0 110px;
+  margin: 0 auto 0 64px;
+  text-decoration: none;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 56px;
   color: #666666;
+  width: 215px;
+  height: 56px;
 }
 
 .orderitems3{
-  margin: 20px auto 0 110px;
+  margin: 0 auto 0 64px;
+  text-decoration: none;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 56px;
   color: #666666;
+  width: 215px;
+  height: 56px;
 }
 
 .orderitems4{
-  margin: 20px auto 0 110px;
+  margin: 0 auto 0 64px;
+  text-decoration: none;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 56px;
   color: #666666;
-}
-
-.vehicleitems{
-  margin: 20px auto 0 110px;
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #666666;
-}
-
-
-
-.ordersclick{
   width: 215px;
   height: 56px;
-  margin-left: 63px;
+}
+
+.vehicleitem1{
+  margin: 0 auto 0 64px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 56px;
+  color: #666666;
+  background: #FFFFFF;
+  width: 215px;
+  height: 56px;
+  text-decoration: none;
+}
+
+.vehicleitem2{
+  margin: 0 auto 0 64px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 56px;
+  color: #666666;
+  background: #FFFFFF;
+  width: 215px;
+  height: 56px;
+  text-decoration: none;
+}
+
+.vehicleitem3{
+  margin: 0 auto 0 64px;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 56px;
+  color: #666666;
+  background: #FFFFFF;
+  width: 215px;
+  height: 56px;
+  text-decoration: none;
+}
+
+.vtext{
+  margin: auto 0 auto 32px;
 }
 
 .ordersclick1{
-  width: 215px;
-  height: 56px;
-  margin-left: 63px;
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  color: #000000;
 }
 
 .ordersclick2{
-  width: 215px;
-  height: 56px;
-  margin-left: 63px;
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  color: #000000;
 }
 
 .ordersclick3{
-  width: 215px;
-  height: 56px;
-  margin-left: 63px;
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  color: #000000;
+}
+
+.ordersclick4{
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  color: #000000;
 }
 
 .vehicleclick1{
-  width: 215px;
-  height: 56px;
-  margin-left: 63px;
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  color: #000000;
 }
 
 .vehicleclick2{
-  width: 215px;
-  height: 56px;
-  margin-left: 63px;
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  color: #000000;
 }
 
 .vehicleclick3{
-  width: 215px;
-  height: 56px;
-  margin-left: 63px;
+  background-image: linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  background:-webkit-linear-gradient(0deg, #D9B608, #D9B608 0%, #FBFBFB, #FBFBFB 5%);
+  color: #000000;
 }
 </style>
