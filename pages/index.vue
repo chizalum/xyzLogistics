@@ -5,7 +5,7 @@
         <p class="instructions">Enter your username and password</p>
         <input class="username" type="text" placeholder="username" required>
         <input class="password" type="text" placeholder="password" required>
-        <button class="continuebtn">
+        <button class="continuebtn" @click="changeRoute()">
           <router-link to="/loginpage" class="continue">Continue</router-link>
         </button>
       </form>
@@ -16,6 +16,12 @@
 export default {
     name: "IndexPage",
     layout: 'login',
+
+    methods: {
+      changeRoute(){
+        this.$router.push('/loginpage'); 
+      }
+    },
 }
 </script>
 

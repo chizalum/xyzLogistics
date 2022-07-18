@@ -6,7 +6,7 @@
         <input class="username" type="text" placeholder="username" required>
         <input class="password" type="text" placeholder="password" required>
         <input class="password" type="text" placeholder="Confirm Password" required>
-        <button class="continuebtn">
+        <button class="continuebtn" @click="changeRoute()">
           <router-link to="/dashboard" class="continue">Continue</router-link>
         </button>
       </form>
@@ -17,6 +17,12 @@
   export default {
     name: 'loginpage',
     layout: 'login',
+
+    methods: {
+      changeRoute(){
+        this.$router.push('/dashboard'); 
+      }
+    },
   }
 </script>
 
