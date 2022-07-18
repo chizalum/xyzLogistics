@@ -11,26 +11,26 @@
       <nav class="navbar">
       <div class="navitem1" @click="changeDash()" :class="{ activenav1: activeBar1 }">
          <img :src="dashimage[dashCurrent]" alt="dashboard" class="dashboardimg">
-         <nuxt-link to="/" class="dashboardtext" :class="{ dashboardtext2: isActive1 }">Dashboard</nuxt-link>
+         <nuxt-link to="/dashboard" class="dashboardtext" :class="{ dashboardtext2: isActive1 }">Dashboard</nuxt-link>
       </div>
        <div>
          <div class="navitem2" @click="changeOrder()">
            <img :src="orderimage[orderCurrent]" alt="orders" class="ordersimg">
-           <nuxt-link to="/" class="orderstext" :class="{ orderstext2: isActive2 }">Orders</nuxt-link>
+           <nuxt-link to="/orders" class="orderstext" :class="{ orderstext2: isActive2 }">Orders</nuxt-link>
          </div>
          <div class="orderDD" v-if="show">
            <vr class="verticalrule"></vr>
          <div class="orderview">
-           <nuxt-link to="/" @click.native="changeFirst()"  class="orderitems1" :class="{ordersclick1: ordersActive1}">
+           <nuxt-link to="/orders" @click.native="changeFirst()"  class="orderitems1" :class="{ordersclick1: ordersActive1}">
              <span class="vtext">Active Orders</span>
            </nuxt-link>
-           <nuxt-link to="/" @click.native="changeSecond()" class="orderitems2" :class="{ordersclick2: ordersActive2}">
+           <nuxt-link to="/orders" @click.native="changeSecond()" class="orderitems2" :class="{ordersclick2: ordersActive2}">
              <span class="vtext">Delivered</span>
            </nuxt-link>
-           <nuxt-link to="/" @click.native="changeThird()" class="orderitems3" :class="{ordersclick3: ordersActive3}">
+           <nuxt-link to="/orders" @click.native="changeThird()" class="orderitems3" :class="{ordersclick3: ordersActive3}">
             <span class="vtext">Pending Orders</span>
            </nuxt-link>
-           <nuxt-link to="/" @click.native="changeFourth()" class="orderitems4" :class="{ordersclick4: ordersActive4}"> 
+           <nuxt-link to="/orders" @click.native="changeFourth()" class="orderitems4" :class="{ordersclick4: ordersActive4}"> 
              <span class="vtext">Cancelled</span>
            </nuxt-link>
           </div>
@@ -63,7 +63,7 @@
             <hr class="siderule1"> 
         <div class="navitem5" @click="changeSettings()" :class="{ activenav5: activeBar5 }">
            <img :src="settingsimage[settingsCurrent]" alt="settings" class="settingsimg">
-           <nuxt-link to="/" class="settingstext" :class="{ settingstext2: isActive5 }">Settings</nuxt-link>
+           <nuxt-link to="/settings" class="settingstext" :class="{ settingstext2: isActive5 }">Settings</nuxt-link>
         </div>
       </nav>
    </div>
@@ -128,6 +128,7 @@ export default {
     this.activeBar3 = false;
     this.activeBar5 = false;
     this.closeSub();
+    this.$router.push('/dashboard');
 },
 
     changeOrder(){
@@ -218,6 +219,7 @@ export default {
     this.activeBar1 = false;
     this.activeBar3 = false;
     this.closeSub();
+    this.$router.push('/settings');
   },
 
   changeVan(){

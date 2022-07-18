@@ -1,12 +1,13 @@
 <template>
     <div class="fullscreen">
       <form action="" class="form">
-        <h1 class="welcome">Welcome back</h1>
-        <p class="instructions">Enter your username and password</p>
+        <h1 class="welcome">Hello Prudence,</h1>
+        <p class="instructions">Set your username and  password</p>
         <input class="username" type="text" placeholder="username" required>
         <input class="password" type="text" placeholder="password" required>
+        <input class="password" type="text" placeholder="Confirm Password" required>
         <button class="continuebtn">
-          <p class="continue">Continue</p>
+          <router-link to="/dashboard" class="continue">Continue</router-link>
         </button>
       </form>
     </div>
@@ -14,6 +15,7 @@
 
 <script>
   export default {
+    name: 'loginpage',
     layout: 'login',
   }
 </script>
@@ -21,6 +23,7 @@
 <style scoped>
 
 .fullscreen{
+width: 40%;
 height: 100vh;
 margin: 0 60% 0 0;
 }
@@ -131,5 +134,6 @@ font-weight: 400;
 font-size: 14px;
 line-height: 24px;
 color: #000000;
+text-decoration: none;
 }
 </style>

@@ -3,10 +3,10 @@
     <h1 class="orders">Orders</h1>
     <h2 class="manage">Manage all your dispatchers, assign orders, and track orders here.</h2>
     <nav class="navbar">
-      <router-link to="" class="navlink1" :class="{ordersclick1: ordersActive1}">Active Orders</router-link>
-      <router-link to="" class="navlink2" :class="{ordersclick2: ordersActive2}">Delivered</router-link>
-      <router-link to="" class="navlink3" :class="{ordersclick3: ordersActive3}">Pending Orders</router-link>
-      <router-link to="" class="navlink4" :class="{ordersclick4: ordersActive4}">Cancelled</router-link>
+      <router-link to="" class="navlink1" :class="{ordersclick1: ordersActive1}" @click.native="changeFirst()">Active Orders</router-link>
+      <router-link to="" class="navlink2" :class="{ordersclick2: ordersActive2}" @click.native="changeSecond()">Delivered</router-link>
+      <router-link to="" class="navlink3" :class="{ordersclick3: ordersActive3}" @click.native="changeThird()">Pending Orders</router-link>
+      <router-link to="" class="navlink4" :class="{ordersclick4: ordersActive4}" @click.native="changeFourth()">Cancelled</router-link>
     </nav>
     <div class="indicatorbars">
       <div class="indicatorbar1" :class="{indicatorclick1: ordersActive1}"></div>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Orders',
+  name: 'orders',
   data() {
     return{
       ordersActive1 : true,
@@ -27,11 +27,43 @@ export default {
       ordersActive3 : false,
       ordersActive4 : false,
     }
+  },
+
+  methods: {
+    changeFirst() {
+      this.ordersActive1 = true;
+      this.ordersActive2 = false;
+      this.ordersActive3 = false;
+      this.ordersActive4 = false;
+    },
+    changeSecond() {
+      this.ordersActive1 = false;
+      this.ordersActive2 = true;
+      this.ordersActive3 = false;
+      this.ordersActive4 = false;
+    },
+    changeThird() {
+      this.ordersActive1 = false;
+      this.ordersActive2 = false;
+      this.ordersActive3 = true;
+      this.ordersActive4 = false;
+    },
+    changeFourth() {
+      this.ordersActive1 = false;
+      this.ordersActive2 = false;
+      this.ordersActive3 = false;
+      this.ordersActive4 = true;
+    },
   }
 }
 </script>
 
 <style scoped>
+.fullwidth{
+height: 100vh;
+width: 100vw;
+}
+
 .orders{
 font-family: 'DM Sans';
 font-style: normal;

@@ -1,5 +1,5 @@
 <template>
-  <div class="fullpage">
+ <div class="fullpage">
     <h1 class="welcome">Welcome back David</h1>
     <div class="stats">
       <div class="revenue">
@@ -40,7 +40,7 @@
 
 <script>
 export default {
-
+    name: "dashboard",
 }
 </script>
 
