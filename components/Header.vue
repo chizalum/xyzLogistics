@@ -1,35 +1,40 @@
 <template>
   <div>
+    <div class="topbar">
+      <img src="bell.png" alt="bell" class="bell">
+      <h1 class="name">David Odu</h1>
+      <img src="online.png" alt="online" class="online">
+    </div>
     <div class="sidebar">
       <img src="xyzlogo.png" alt="logo" class="logo"> 
       <hr class="siderule">
       <nav class="navbar">
-        <div class="navitem1" @click="changeDash()" :class="{ activenav1: activeBar1 }">
-          <img :src="dashimage[dashCurrent]" alt="dashboard" class="dashboardimg">
-          <nuxt-link to="/" class="dashboardtext" :class="{ dashboardtext2: isActive1 }">Dashboard</nuxt-link>
+      <div class="navitem1" @click="changeDash()" :class="{ activenav1: activeBar1 }">
+         <img :src="dashimage[dashCurrent]" alt="dashboard" class="dashboardimg">
+         <nuxt-link to="/" class="dashboardtext" :class="{ dashboardtext2: isActive1 }">Dashboard</nuxt-link>
+      </div>
+       <div>
+         <div class="navitem2" @click="changeOrder()">
+           <img :src="orderimage[orderCurrent]" alt="orders" class="ordersimg">
+           <nuxt-link to="/" class="orderstext" :class="{ orderstext2: isActive2 }">Orders</nuxt-link>
+         </div>
+         <div class="orderDD" v-if="show">
+           <vr class="verticalrule"></vr>
+         <div class="orderview">
+           <nuxt-link to="/" @click.native="changeFirst()"  class="orderitems1" :class="{ordersclick1: ordersActive1}">
+             <span class="vtext">Active Orders</span>
+           </nuxt-link>
+           <nuxt-link to="/" @click.native="changeSecond()" class="orderitems2" :class="{ordersclick2: ordersActive2}">
+             <span class="vtext">Delivered</span>
+           </nuxt-link>
+           <nuxt-link to="/" @click.native="changeThird()" class="orderitems3" :class="{ordersclick3: ordersActive3}">
+            <span class="vtext">Pending Orders</span>
+           </nuxt-link>
+           <nuxt-link to="/" @click.native="changeFourth()" class="orderitems4" :class="{ordersclick4: ordersActive4}"> 
+             <span class="vtext">Cancelled</span>
+           </nuxt-link>
+          </div>
         </div>
-        <div>
-            <div class="navitem2" @click="changeOrder()">
-              <img :src="orderimage[orderCurrent]" alt="orders" class="ordersimg">
-              <nuxt-link to="/" class="orderstext" :class="{ orderstext2: isActive2 }">Orders</nuxt-link>
-            </div>
-            <div class="orderDD" v-if="show">
-              <vr class="verticalrule"></vr>
-              <div class="orderview">
-                <nuxt-link to="/" @click.native="changeFirst()"  class="orderitems1" :class="{ordersclick1: ordersActive1}">
-                  <span class="vtext">Active Orders</span>
-                </nuxt-link>
-                <nuxt-link to="/" @click.native="changeSecond()" class="orderitems2" :class="{ordersclick2: ordersActive2}">
-                  <span class="vtext">Delivered</span>
-                </nuxt-link>
-                <nuxt-link to="/" @click.native="changeThird()" class="orderitems3" :class="{ordersclick3: ordersActive3}">
-                   <span class="vtext">Pending Orders</span>
-                </nuxt-link>
-                <nuxt-link to="/" @click.native="changeFourth()" class="orderitems4" :class="{ordersclick4: ordersActive4}"> 
-                  <span class="vtext">Cancelled</span>
-                </nuxt-link>
-              </div>
-            </div>
         </div>    
         <div class="navitem3" @click="changeAgents()" :class="{ activenav3: activeBar3 }">
           <img :src="agentsimage[agentsCurrent]" alt="agents" class="agentsimg">
@@ -299,15 +304,49 @@ export default {
 </script>
 
 <style scoped>
+.topbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; 
+  background: #ffffff;
+  height: 72px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.bell{
+  margin: auto 67px auto 0;
+  width: 32px;
+  height: 32px;
+}
+
+.name{
+  margin: auto 8px auto 0;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #575757;
+}
+
+.online{
+  margin: auto 64px auto 0;
+  width: 12px;
+  height: 12px;
+}
+
 .sidebar {
   width: 320px;
-  height: 100%;
+  height: 100vh;
   background-color: #ffffff;
   top: 0;
   left: 0;
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   box-shadow: 0px 6px 18px 0px #0000000A;
 }
 

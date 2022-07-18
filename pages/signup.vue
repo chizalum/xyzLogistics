@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="fullscreen">
       <form action="" class="form">
         <h1 class="welcome">Hello Prudence,</h1>
         <p class="instructions">Set your username and  password</p>
@@ -20,13 +20,8 @@
 </script>
 
 <style scoped>
-body, html {
-height: 100%;
-margin: 0;
-padding: 0;
-}
 
-.container{
+.fullscreen{
 width: 40%;
 height: 100vh;
 margin: 0 60% 0 0;
@@ -75,9 +70,14 @@ box-sizing: border-box;
 width: 364px;
 height: 48px;
 background: #F8F8F8;
-border: none;
+border: 1px solid #F8F8F8;
 border-radius: 8px;
 margin: 40px auto 0 auto;
+}
+
+.username:focus{
+border-color: #D9B608;
+outline: none;
 }
 
 .username::placeholder{
@@ -95,8 +95,13 @@ width: 364px;
 height: 48px;
 background: #F8F8F8;
 border-radius: 8px;
-border: none;
+border: 1px solid #F8F8F8;
 margin: 24px auto 0 auto;
+}
+
+.password:focus{
+border-color: #D9B608;
+outline: none;
 }
 
 .password::placeholder{
