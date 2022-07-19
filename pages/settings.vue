@@ -10,7 +10,7 @@
     </div>
     <hr class="horizontalrule">
     <div class="searchbutton">
-    <input type="text" class="searchbar" placeholder="Search">
+    <input type="search" class="searchbar" placeholder="Search">
     <button class="button">Add New</button>
     </div>
     <div class="title">

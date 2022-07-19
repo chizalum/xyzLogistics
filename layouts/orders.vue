@@ -1,6 +1,7 @@
 <template>
     <div class="fullwidth">
         <Header />
+        <Orderhead /> 
         <Nuxt />
     </div>
 </template>
@@ -12,5 +13,7 @@
 
     .fullwidth {
        background: #FFFEFA;
+       width: 100vw;
+       height: 100vh;
     }
 </style>

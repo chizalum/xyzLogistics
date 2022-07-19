@@ -1,12 +1,12 @@
 <template>
-  <div class="fullwidth">
+  <div class="allscreen">
     <h1 class="orders">Orders</h1>
     <h2 class="manage">Manage all your dispatchers, assign orders, and track orders here.</h2>
     <nav class="navbar">
-      <router-link to="" class="navlink1" :class="{ordersclick1: ordersActive1}" @click.native="changeFirst()">Active Orders</router-link>
-      <router-link to="" class="navlink2" :class="{ordersclick2: ordersActive2}" @click.native="changeSecond()">Delivered</router-link>
-      <router-link to="" class="navlink3" :class="{ordersclick3: ordersActive3}" @click.native="changeThird()">Pending Orders</router-link>
-      <router-link to="" class="navlink4" :class="{ordersclick4: ordersActive4}" @click.native="changeFourth()">Cancelled</router-link>
+      <router-link to="/activeorders" class="navlink1" :class="{ordersclick1: ordersActive1}" @click.native="changeFirst()">Active Orders</router-link>
+      <router-link to="/deliveredorders" class="navlink2" :class="{ordersclick2: ordersActive2}" @click.native="changeSecond()">Delivered</router-link>
+      <router-link to="/pendingorders" class="navlink3" :class="{ordersclick3: ordersActive3}" @click.native="changeThird()">Pending Orders</router-link>
+      <router-link to="/cancelledorders" class="navlink4" :class="{ordersclick4: ordersActive4}" @click.native="changeFourth()">Cancelled</router-link>
     </nav>
     <div class="indicatorbars">
       <div class="indicatorbar1" :class="{indicatorclick1: ordersActive1}"></div>
@@ -14,12 +14,37 @@
       <div class="indicatorbar3" :class="{indicatorclick3: ordersActive3}"></div>
       <div class="indicatorbar4" :class="{indicatorclick4: ordersActive4}"></div>
     </div>
+    <hr class="horizontalrule">
+    <div class="infobar">
+      <div>
+      <input type="search" placeholder="Search" class="searchbar">
+      </div>
+      <div class="moreinfo">
+        <div class="infogroups">
+          <p class="infotext">Vehicle</p>
+          <img src="droparrow.png" class="droparrow" alt="droparrow">
+        </div>
+        <div class="infogroups">
+          <p class="infotext">Location</p>
+          <img src="droparrow.png" class="droparrow" alt="droparrow">
+        </div>
+        <div class="infogroups">
+          <p class="infotext">Package size</p>
+          <img src="droparrow.png" class="droparrow" alt="droparrow">
+        </div>
+        <div class="infogroups">
+          <p class="infotext">Date</p>
+          <img src="droparrow.png" class="droparrow" alt="droparrow">
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'orders',
+  name: 'Orderhead',
+
   data() {
     return{
       ordersActive1 : true,
@@ -59,9 +84,10 @@ export default {
 </script>
 
 <style scoped>
-.fullwidth{
+.allscreens{
 height: 100vh;
 width: 100vw;
+white-space: nowrap;
 }
 
 .orders{
@@ -212,5 +238,67 @@ color: #000000;
 .ordersclick4{
 font-weight: 700;
 color: #000000;
+}
+
+.horizontalrule{
+width: 1120px;
+height: 0px;
+border: 1px solid #F3F3F3;
+margin: 0 0 0 320px;
+}
+
+.infobar{
+display: flex;
+flex-direction: row;
+margin: 32px 0 0 368px;
+height: 40px;
+}
+
+.searchbar{
+width: 590px;
+height: 40px;
+left: 368px;
+top: 272px;
+border: 1px solid #E4E4E4;
+border-radius: 8px;
+margin: 0 32px 0 0;
+background: url("");
+}
+
+.moreinfo{
+display: flex;
+flex-direction: row;
+width: 452px;
+height: 40px;
+border: 1px solid #E4E4E4;
+border-radius: 8px;
+white-space: nowrap;
+padding: 0;
+}
+
+.infogroups{
+display: flex;
+flex-direction: row;
+margin: 0 36px 0 0;
+}
+
+.infogroups:nth-child(1){
+margin-left: 32px;
+}
+
+.infotext{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+color: #000000;
+margin: auto 12px auto 0;
+}
+
+.droparrow{
+height: 4px;
+width: 8px;
+margin: auto 0 auto 0;
 }
 </style>
