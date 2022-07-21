@@ -38,7 +38,7 @@
         </div>    
         <div class="navitem3" @click="changeAgents()" :class="{ activenav3: activeBar3 }">
           <img :src="agentsimage[agentsCurrent]" alt="agents" class="agentsimg">
-          <nuxt-link to="/" class="agentstext" :class="{ agentstext2: isActive3 }">Agents</nuxt-link>
+          <nuxt-link to="/agents" class="agentstext" :class="{ agentstext2: isActive3 }">Agents</nuxt-link>
         </div>
         <div>    
             <div class="navitem4" @click="changeVehicles()">

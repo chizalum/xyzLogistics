@@ -1,7 +1,7 @@
 <template>
   <div class="fullscreen">
     <div class="headdata">
-      <input type="checkbox" class="box">
+      <input type="checkbox" class="box" @click='checkAll()' v-model='isCheckAll'>
       <p class="headdata1">Tracking number</p>
       <p class="headdata2">Customer name</p>
       <p class="headdata3">Customer number</p>
@@ -11,157 +11,25 @@
       <p class="headdata7">Package size</p>
       <p class="headdata8">Date</p>
     </div>
-    <div class="bodydata" @click="showImage1()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate:turn1}"> 
-    </div>
-    <div class="viewcontainer" v-if="show1">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage2()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate:turn2}"> 
-    </div>
-    <div class="viewcontainer" v-if="show2">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage3()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate:turn3}"> 
-    </div>
-    <div class="viewcontainer" v-if="show3">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage4()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate:turn4}"> 
-    </div>
-    <div class="viewcontainer" v-if="show4">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage5()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate5:turn}"> 
-    </div>
-    <div class="viewcontainer" v-if="show5">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage6()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate6:turn}"> 
-    </div>
-    <div class="viewcontainer" v-if="show6">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage7()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate7:turn}"> 
-    </div>
-    <div class="viewcontainer" v-if="show7">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage8()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate8:turn}"> 
-    </div>
-    <div class="viewcontainer" v-if="show8">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage9()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate9:turn}"> 
-    </div>
-    <div class="viewcontainer" v-if="show9">
-      <img src="orderview.png" class="orderview">
-    </div>
-    <div class="bodydata" @click="showImage10()">
-      <input type="checkbox" class="box1">
-      <p class="bodydata1">18-6589929</p>
-      <p class="bodydata2">Ajibike lola</p>
-      <p class="bodydata3">0806573862587</p>
-      <p class="bodydata4">Yusuf</p>
-      <p class="bodydata5">Bike</p>
-      <p class="bodydata6">Lekki</p>
-      <p class="bodydata7">Small</p>
-      <p class="bodydata8">10/2/22</p>
-      <img src="droparrow.png" class="droparrow" :class="{rotate10:turn}"> 
-    </div>
-    <div class="viewcontainer" v-if="show10">
-      <img src="orderview.png" class="orderview">
-    </div>
-    
+    <div v-for="(details, index) in packageDetails" :key="index">
+      <div class="body-head">
+        <input type="checkbox" class="box1" v-bind:value='details' v-model='languages' @change='updateCheckall()'>
+        <div @click="showImage(index)" class="body-info">
+          <p class="bodydata1">{{details.trackingNumber}}</p>
+          <p class="bodydata2">{{details.name}}</p>
+          <p class="bodydata3">{{details.phone}}</p>
+          <p class="bodydata4">{{details.dispatchName}}</p>
+          <p class="bodydata5">{{details.vehicle}}</p>
+          <p class="bodydata6">{{details.address}}</p>
+          <p class="bodydata7">{{details.package}}</p>
+          <p class="bodydata8">{{details.date}}</p>
+          <img src="droparrow.png" class="droparrow" :class="{rotate:details.turn}"> 
+        </div>
+      </div>
+      <div class="viewcontainer" v-show="details.show">
+        <img :src="details.img" class="orderview">
+      </div>
+    </div>  
   </div>
 </template>
 
@@ -171,69 +39,186 @@ export default {
   layout: 'orders',
   data() {
     return {
-      show10: false,
-      turn10: false,
-      show1: false,
-      turn1: false,
-      show2: false,
-      turn2: false,
-      show3: false,
-      turn3: false,
-      show4: false,
-      turn4: false,
-      show5: false,
-      turn5: false,
-      show6: false,
-      turn6: false,
-      show7: false,
-      turn7: false,
-      show8: false,
-      turn8: false,
-      show9: false,
-      turn9: false,
+      isCheckAll: false,
+      languages: [],
+      packageDetails: [
+        {
+          index: 1,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 2,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 3,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 4,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 5,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 6,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 7,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 8,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 9,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        },
+        {
+          index: 10,
+          trackingNumber: '18-6589929',
+          name: 'Ajibike lola',
+          phone: '0806573862587',
+          dispatchName: 'Yusuf',
+          vehicle: 'Bike',
+          address: 'Lekki',
+          package: 'Small',
+          date: '10/2/22',
+          img:'orderview.png',
+          checked: 'false',
+          show: 'false',
+          turn: 'false',
+        }
+      ]
     }
   },
   methods: {
-    showImage1() {
-      this.show1 = !this.show1;
-      this.turn1 = !this.turn1;
+       checkAll: function(){
+      this.isCheckAll = !this.isCheckAll;
+      this.languages = [];
+      if(this.isCheckAll){ // Check all
+        for (var key in this.packageDetails) {
+          this.languages.push(this.packageDetails[key]);
+        }
+      }
     },
-    showImage2() {
-      this.show2 = !this.show2;
-      this.turn2 = !this.turn2;
+    updateCheckall: function(){
+      if(this.languages.length == this.packageDetails.length){
+         this.isCheckAll = true;
+      }else{
+         this.isCheckAll = false;
+      }
     },
-    showImage3() {
-      this.show3 = !this.show3;
-      this.turn3 = !this.turn3;
+
+
+    showImage(index) {
+      this.packageDetails[index].show = !this.packageDetails[index].show ;
+      this.packageDetails[index].turn = !this.packageDetails[index].turn;
     },
-    showImage4() {
-      this.show4 = !this.show4;
-      this.turn4 = !this.turn4;
-    },
-    showImage5() {
-      this.show5 = !this.show5;
-      this.turn5 = !this.turn5;
-    },
-    showImage6() {
-      this.show6 = !this.show6;
-      this.turn6 = !this.turn6;
-    },
-    showImage7() {
-      this.show7 = !this.show7;
-      this.turn7 = !this.turn7;
-    },
-    showImage8() {
-      this.show8 = !this.show8;
-      this.turn8 = !this.turn8;
-    },
-    showImage9() {
-      this.show9 = !this.show9;
-      this.turn9 = !this.turn9;
-    },
-    showImage10() {
-      this.show10 = !this.show10;
-      this.turn10 = !this.turn10;
-    },
+    
   },
 }
 </script>
@@ -337,7 +322,22 @@ color: #CC5500;
 margin: 0 0 0 40px;
 }
 
-.bodydata{
+.body-head{
+display: flex;
+flex-direction: row;
+width: 1090px;
+height: 56px;
+background: #FFFFFF;
+border: 1px solid #E4E4E4;
+margin: 8px 0 0 344px;
+}
+
+.body-info{
+display: flex;
+flex-direction: row; 
+}
+
+.body-head:nth-child(1){
 display: flex;
 flex-direction: row;
 width: 1090px;
@@ -346,6 +346,7 @@ background: #FFFFFF;
 border: 1px solid #E4E4E4;
 margin: 16px 0 0 344px;
 }
+
 
 .box1{
 margin: auto 0 auto 24px;
@@ -454,3 +455,9 @@ width: 1057px;
 transform: rotate(180deg);
 }
 </style>
+
+
+
+
+an array of objects
+new field called checked which is a boolean

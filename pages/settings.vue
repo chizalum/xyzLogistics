@@ -11,7 +11,7 @@
     <hr class="horizontalrule">
     <div class="searchbutton">
     <input type="search" class="searchbar" placeholder="Search">
-    <button class="button">Add New</button>
+    <button class="button" @click="openModal()">Add New</button>
     </div>
     <div class="title">
       <p class="name">Name</p>
@@ -100,29 +100,39 @@
       <p class="dated">12/6/22</p>
       <img src="dots.png" alt="options" class="dots">
     </div>
+    <settingsmodal v-if="showModal" @closeModal="offModal" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'settings',
-  data() {
-    return{
-      ordersActive1 : true,
-      ordersActive2 : false,
-    }
-  },
+    name: "settings",
+    data() {
+        return {
+            ordersActive1: true,
+            ordersActive2: false,
+            showModal: false
+        };
+    },
+    methods: {
+        changeFirst() {
+            this.ordersActive1 = true;
+            this.ordersActive2 = false;
+        },
 
-  methods: {
-    changeFirst() {
-      this.ordersActive1 = true;
-      this.ordersActive2 = false;
+        changeSecond() {
+            this.ordersActive1 = false;
+            this.ordersActive2 = true;
+        },
+
+        openModal() {
+            this.showModal = true;
+        },
+
+        offModal() {
+            this.showModal = false;
+        }
     },
-    changeSecond() {
-      this.ordersActive1 = false;
-      this.ordersActive2 = true;
-    },
-  }
 }
 </script>
 
