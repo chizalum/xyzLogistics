@@ -1,34 +1,44 @@
 <template>
     <div class="fullscreen">
       <form action="" class="form">
-        <h1 class="welcome">Welcome back</h1>
-        <p class="instructions">Enter your username and password</p>
-        <input class="username" type="text" placeholder="username" required>
-        <input class="password" type="text" placeholder="password" required>
+        <h1 class="welcome">Hello Prudence,</h1>
+        <p class="instructions">Set your username and  password</p>
+        <input class="username" type="text" placeholder="username" required v-model="adminName">
+        <input class="password" type="text" placeholder="password" required v-model="adminPassword">
+        <input class="password" type="text" placeholder="Confirm Password" required v-model="confirmPassword">
         <button class="continuebtn" @click="changeRoute()">
-          <router-link to="/loginpage" class="continue">Continue</router-link>
+          <router-link to="/dashboard" class="continue">Continue</router-link>
         </button>
       </form>
     </div>
 </template>
 
 <script>
-export default {
-    name: "IndexPage",
+  export default {
+    name: 'index',
     layout: 'login',
 
-    methods: {
-      changeRoute(){
-        this.$router.push('/loginpage'); 
+    data() {
+      return {
+        adminName: '',
+        adminPassword: '',
+        confirmPassword: '',
       }
     },
-}
+
+    methods: {
+      changeRoute(){ 
+         this.$router.push('/loginpage');
+      },
+  }
+  }
 </script>
 
 
 <style scoped>
 
 .fullscreen{
+width: 40%;
 height: 100vh;
 margin: 0 60% 0 0;
 }

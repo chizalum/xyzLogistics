@@ -8,12 +8,12 @@
 
 <style scoped>
 .body, html {
-    background: #FFFEFA;
+background: #FFFEFA;
 }
 
-    .fullwidth {
-       background: #FFFEFA;
-       width: 100vw;
-       height: 100vh;
-    }
+.fullwidth {
+background: #FFFEFA;
+width: 100vw;
+height: 100vh;
+}
 </style>

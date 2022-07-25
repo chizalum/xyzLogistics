@@ -43,18 +43,18 @@
         <div>    
             <div class="navitem4" @click="changeVehicles()">
               <img :src="vehiclesimage[vehiclesCurrent]" alt="vehicles" class="vehiclesimg">
-              <nuxt-link to="/" class="vehiclestext" :class="{ vehiclestext2: isActive4 }">Vehicles</nuxt-link>
+              <p class="vehiclestext" :class="{ vehiclestext2: isActive4 }">Vehicles</p>
             </div>
             <div class="orderDD" v-if="view">
               <vr class="verticalrule1"></vr>
               <div class="orderview">
-                <nuxt-link to="/" @click.native="changeVan()" class="vehicleitem1" :class="{vehicleclick1: vehicleActive1}">
+                <nuxt-link to="/vans" @click.native="changeVan()" class="vehicleitem1" :class="{vehicleclick1: vehicleActive1}">
                   <span class="vtext">Vans</span>
                 </nuxt-link>
-                <nuxt-link to="/" @click.native="changeTruck()" class="vehicleitem2" :class="{vehicleclick2: vehicleActive2}">
+                <nuxt-link to="/trucks" @click.native="changeTruck()" class="vehicleitem2" :class="{vehicleclick2: vehicleActive2}">
                   <span class="vtext">Trucks</span>
                 </nuxt-link>
-                <nuxt-link to="/" @click.native="changeBike()" class="vehicleitem3" :class="{vehicleclick3: vehicleActive3}">
+                <nuxt-link to="/bikes" @click.native="changeBike()" class="vehicleitem3" :class="{vehicleclick3: vehicleActive3}">
                    <span class="vtext">Bikes</span>
                 </nuxt-link>
               </div>
@@ -105,6 +105,7 @@ export default {
       activeBar1: true,
       activeBar3: false,
       activeBar5: false,
+      ownerName: '{{}}',
     }
   },
 

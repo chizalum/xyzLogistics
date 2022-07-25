@@ -27,7 +27,55 @@
         </div>
       </div>
       <div class="viewcontainer" v-show="details.show">
-        <img :src="details.img" class="orderview">
+        <div class="first-column">
+          <p class="pick-up">Pick-up<span class="pick">(Local)</span></p>
+          <div class="first-row">
+            <img src="directionarrows.png" class="direction-arrows">
+            <p class="from">From</p>
+            <img src="locator.png" class="locator-img">
+            <p class="locator-text">12 Odutola street, Adaba B/stp, Egbeda, Lagos.</p>
+          </div>
+          <div class="second-row">
+            <p class="to">To</p>
+            <img src="locator.png" class="locator-img2">
+            <p class="locator-text">12 Odutola street, Adaba B/stp, Egbeda, Lagos.</p>
+          </div>
+          <hr class="info-rule">
+          <div class="third-row">
+            <img src="profile-icon.png" class="profile-icon">
+            <p class="from2">From</p>
+            <img src="profilepic.png" class="profilepic">
+            <p class="locator-name">Ajibike Lola</p>
+          </div>
+          <div class="fourth-row">
+            <img src="phone.png" class="phone">
+            <p class="number">07064783993</p>
+          </div>
+          <div class="fifth-row">
+            <p class="to2">To</p>
+            <img src="profilepic.png" class="profilepic2">
+            <p class="locator-name">Ajibike Lola</p>
+          </div>
+          <div class="sixth-row">
+            <img src="phone.png" class="phone">
+            <p class="number">07064783993</p>
+          </div>
+          <hr class="info-rule">
+          <div class="seventh-row">
+            <img src="clock.png" class="clock">
+            <p class="date">Date</p>
+            <p class="time">Time</p>
+            <p class="package">Package Size</p>
+          </div>
+          <div class="eight-row">
+            <p class="date1">12/03/22</p>
+            <p class="time1">10am</p>
+            <p class="package1">Medium</p>
+          </div>
+        </div>
+        <div class="second-column">
+          <img src="orders-img.png" class="column-img">
+        </div>
       </div>
     </div>  
   </div>
@@ -439,25 +487,292 @@ height: 4px;
 margin: auto 0 auto 44px;
 }
 
-.orderview{
-margin: 0 0 0 0;
-width: 100%;
-}
 
 .viewcontainer{
-margin: 0 0 0 304px;
-padding: 0 0 0 0;
+margin: 24px 0 0 344px;
+display: flex;
+flex-direction: row;
 height: 430px;
 width: 1057px;
+background: #FFFFFF;
+border: 1px solid #E4E4E4;
+box-shadow: 0px 17px 42px rgba(0, 0, 0, 0.12);
+border-radius: 8px;
+}
+
+.first-column{
+display: flex;
+flex-direction: column;
+}
+
+.pick-up{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+color: #000000;
+margin: 32px 0 0 80px;
+}
+
+.pick{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+color: #777777;
+margin-left: 8px;
 }
 
 .rotate{
 transform: rotate(180deg);
 }
+
+.first-row{
+display: flex;
+flex-direction: row;
+margin: 34px 0 0 31px;
+}
+
+.direction-arrows{
+height: 15.1px;
+width: 16.3px; 
+margin: auto 0 auto 0;
+}
+
+.from{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+color: #515151;
+margin: auto 0 auto 31px;
+}
+
+.locator-img{
+height: 14.6px;
+width: 11.9px;
+margin: auto 0 auto 15px;
+}
+
+.locator-text{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+color: #000000;
+margin: auto 0 auto 14px;
+}
+
+.second-row{
+display: flex;
+flex-direction: row;
+margin: 17px 0 0 80px;
+}
+
+.to{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+color: #515151;
+margin: auto 0 auto 0;
+}
+
+.locator-img2{
+margin: auto 0 auto 27px;
+height: 14.6px;
+width: 11.9px;
+}
+
+.info-rule{
+width: 500px;
+border: 1px solid #F3F3F3; 
+margin: 24px 0 0 0;
+}
+
+.third-row{
+display: flex;
+flex-direction: row;
+margin: 34px 0 0 23px;
+}
+
+.profile-icon{
+height: 32px;
+width: 32px;
+margin: auto 0 auto 0;
+}
+
+.from2{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+color: #515151;
+margin: auto 0 auto 23px;
+}
+
+.profilepic{
+width: 24px;
+height: 20px;
+margin: auto 0 auto 14px; 
+border-radius: 50%;
+}
+
+.locator-name{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+color: #000000;
+margin: auto 0 auto 4px;
+}
+
+.fourth-row{
+display: flex;
+flex-direction: row;
+margin: 8px 0 0 122.8px;
+}
+
+.to2{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 12px;
+color: #515151;
+margin: auto 0 auto 14px;
+}
+
+.phone{
+height: 10.2px;
+width: 10.2px;
+margin: auto 0 auto 0;
+}
+
+.number{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 16px;
+color: #777777; 
+margin: auto 0 auto 11px;
+}
+
+.fifth-row{
+display: flex;
+flex-direction: row;
+margin: 8px 0 0 63.8px;
+}
+
+.sixth-row{
+display: flex;
+flex-direction: row;
+margin: 8px 0 0 122.8px;
+}
+
+.profilepic2{
+width: 24px;
+height: 20px;
+margin: auto 0 auto 26px; 
+border-radius: 50%;
+}
+
+.seventh-row{
+display: flex;
+flex-direction: row;
+margin: 30px 0 0 31px;
+}
+
+.clock{
+height: 18.1px;
+width: 17px;
+margin: 0 0 0 0;
+}
+
+.date{
+margin: 0 0 0 31px; 
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 16px;
+color: #313131;
+}
+
+.time{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 16px;
+color: #313131; 
+margin: 0 0 0 71px; 
+}
+
+.package{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 10px;
+line-height: 16px;
+color: #313131; 
+margin: 0 0 0 51px;
+}
+
+.eight-row{
+display: flex;
+flex-direction: row;
+margin: 0 0 0 80px;
+}
+
+.date1{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+color: #030303;
+margin: 0 0 0 0;
+}
+
+.time1{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+color: #030303;
+margin: 0 0 0 44px;
+}
+
+.package1{
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+color: #030303;
+margin: 0 0 0 43px;
+}
+
+.second-column{
+display: flex;
+flex-direction: row;
+margin: 0 0 0 0;
+align-items: center;
+}
+
+.column-img{
+width: 533px;
+height: 350px;
+margin: auto 0 auto 0;
+}
 </style>
 
-
-
-
-an array of objects
-new field called checked which is a boolean

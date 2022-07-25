@@ -1,12 +1,11 @@
 <template>
   <div class="allscreen">
-    <h1 class="orders">Orders</h1>
+    <h1 class="vehicles">Vehicles</h1>
     <h2 class="manage">Manage all your dispatchers, assign orders, and track orders here.</h2>
     <nav class="navbar">
-      <router-link to="/activeorders" class="navlink1">Active Orders</router-link>
-      <router-link to="/deliveredorders" class="navlink2">Delivered</router-link>
-      <router-link to="/pendingorders" class="navlink3">Pending Orders</router-link>
-      <router-link to="/cancelledorders" class="navlink4">Cancelled</router-link>
+      <router-link to="/vans" class="navlink1">Vans</router-link>
+      <router-link to="/trucks" class="navlink2">Trucks</router-link>
+      <router-link to="/bikes" class="navlink3">Bikes</router-link>
     </nav>
     <hr class="horizontalrule">
     <div class="infobar">
@@ -19,11 +18,11 @@
           <img src="droparrow.png" class="droparrow" alt="droparrow">
         </div>
         <div class="infogroups">
-          <p class="infotext">Location</p>
+          <p class="infotext">Condition</p>
           <img src="droparrow.png" class="droparrow" alt="droparrow">
         </div>
         <div class="infogroups">
-          <p class="infotext">Package size</p>
+          <p class="infotext">Status</p>
           <img src="droparrow.png" class="droparrow" alt="droparrow">
         </div>
         <div class="infogroups">
@@ -46,9 +45,10 @@ export default {
 height: auto;
 width: auto;
 white-space: nowrap;
+background: #FFFEFA;
 }
 
-.orders{
+.vehicles{
 font-family: 'DM Sans';
 font-style: normal;
 font-weight: 700;
@@ -114,18 +114,6 @@ margin: 0 32px 0 0;
 text-decoration: none;
 }
 
-.navlink4{
-font-family: 'DM Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-min-width: auto;
-min-height: 52px;
-line-height: 24px;
-color: #777777;  
-margin: 0 0 0 0;
-text-decoration: none;
-}
 
 a.nuxt-link-exact-active{
 font-weight: 700;
