@@ -123,7 +123,7 @@ data() {
           vehicle: 'White van',
           vehicleId: 'Rs-46578',
           condition: 'Good',
-          rider: ['Jamiu olayinde', '- -- -'],
+          rider: ['- -- -', 'Jamiu olayinde'],
           status: ['Unassigned','Assigned'],
           assign: ['Assign','Unassign'],
           dateAssigned: '17/7/2020',
@@ -372,7 +372,7 @@ margin: auto 0 auto 24px;
 display: flex;
 width: 106px;
 height: 32px;
-background: #BBFFDA;
+background: #FFC6C6;
 border-radius: 64px
 }
 

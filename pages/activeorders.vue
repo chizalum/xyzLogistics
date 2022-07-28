@@ -307,7 +307,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 40px;
+margin: 0 0 0 25px;
 }
 
 .headdata3{
@@ -317,7 +317,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 40px;
+margin: 0 0 0 27px;
 }
 
 .headdata4{
@@ -327,7 +327,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 40px;
+margin: 0 0 0 38px;
 }
 
 .headdata5{
@@ -337,7 +337,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 40px;
+margin: 0 0 0 25px;
 }
 
 .headdata6{
@@ -347,7 +347,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 40px;
+margin: 0 0 0 32px;
 }
 
 .headdata7{
@@ -357,7 +357,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 40px;
+margin: 0 0 0 34px;
 }
 
 .headdata8{
@@ -367,7 +367,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 40px;
+margin: 0 0 0 28px;
 }
 
 .body-head{
@@ -418,7 +418,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #000000;
-margin: auto 0 auto 73px;
+margin: auto 0 auto 58px;
 }
 
 .bodydata3{
@@ -448,7 +448,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #000000;
-margin: auto 0 auto 100px;
+margin: auto 0 auto 93px;
 }
 
 .bodydata6{
@@ -484,7 +484,7 @@ margin: auto 0 auto 84px;
 .droparrow{
 width: 8px;
 height: 4px;
-margin: auto 0 auto 44px;
+margin: auto 0 auto 32px;
 }
 
 
@@ -512,7 +512,7 @@ font-weight: 500;
 font-size: 14px;
 line-height: 21px;
 color: #000000;
-margin: 32px 0 0 80px;
+margin: 32px 0 0 77px;
 }
 
 .pick{

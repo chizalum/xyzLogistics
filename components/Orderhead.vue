@@ -155,7 +155,6 @@ top: 272px;
 border: 1px solid #E4E4E4;
 border-radius: 8px;
 margin: 0 32px 0 0;
-background: url("");
 }
 
 .moreinfo{

@@ -2,10 +2,14 @@
   <div class="modal-backdrop">
     <div class="modal-container">
       <img src="close.png" class="close" @click="$emit('closeModal')">
-      <p class="assign">Assign Vehicle</p>
+      <p class="assign">Assign Rider</p>
       <div class="modal-flex">
-        <p class="agent">Agent</p>
-        <img src="droparrow.png" class="droparrow">
+        <p class="agent">Vehicle</p>
+        <img src="gold-dropdown.png" class="droparrow1">
+      </div>
+      <div class="modal-flex">
+        <p class="agent">Rider</p>
+        <img src="gold-dropdown.png" class="droparrow">
       </div>
       <button class="assign-btn" @click="$emit('closeModal')"><span class="assign-text">Assign</span></button>
     </div>
@@ -14,11 +18,10 @@
 
 <script>
 export default {
-  name: 'vansmodal',
+  name: 'pendingmodal',
 
   data() {
     return{
-        img: 'modalimage.png',
     }
   }
 }
@@ -43,7 +46,7 @@ export default {
   position: fixed;
   margin: auto auto auto auto;
   width: 532px;
-  height: 221px;
+  height: 304px;
   background: #FFFEFA;
   text-align: center;
 }
@@ -87,6 +90,10 @@ margin: 5px 0 0 512px;
 
 .droparrow {
   margin: auto 0 auto 264px;
+}
+
+.droparrow1 {
+  margin: auto 0 auto 250px;
 }
 
 .assign-btn{

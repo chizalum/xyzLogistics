@@ -20,11 +20,11 @@
           <p class="bodydata4">{{details.rider[number]}}</p>
           <p class="bodydata5"><span class="bodystatus">{{details.status[number]}}</span></p>
           <p class="bodydata6">{{details.dateAssigned}}</p>
-          <Button class="assign-btn" @click="assignRider()">{{details.assign[number]}}</Button>
-          <vansmodal v-if="showModal" @closeModal="offModal"  /> 
+          <Button class="assign-btn" @click="assignRider()">{{details.assign[number]}}</Button> 
         </div>
       </div>
     </div> 
+    <vansmodal v-if="showModal" @closeModal="offModal()"  />
     </div>
 </template>
 
@@ -123,7 +123,7 @@ data() {
           vehicle: 'White van',
           vehicleId: 'Rs-46578',
           condition: 'Good',
-          rider: ['Jamiu olayinde', '- -- -'],
+          rider: ['- -- -', 'Jamiu olayinde'],
           status: ['Unassigned','Assigned'],
           assign: ['Assign','Unassign'],
           dateAssigned: '17/7/2020',
@@ -200,7 +200,6 @@ methods: {
 
     offModal() {
           this.showModal = false
-          console.log(this.showModal)
         },
   },
 }
@@ -372,7 +371,7 @@ margin: auto 0 auto 24px;
 display: flex;
 width: 106px;
 height: 32px;
-background: #BBFFDA;
+background: #FFC6C6;
 border-radius: 64px
 }
 

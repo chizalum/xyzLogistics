@@ -1,13 +1,9 @@
 <template>
   <div class="fullwidth">
     <nav class="navbar">
-      <router-link to="" class="navlink1" :class="{ordersclick1: ordersActive1}" @click.native="changeFirst()">Users & Roles</router-link>
-      <router-link to="" class="navlink2" :class="{ordersclick2: ordersActive2}" @click.native="changeSecond()">Account settings</router-link>
+      <router-link to="/settings" class="navlink1">Users & Roles</router-link>
+      <router-link to="/settings" class="navlink2">Account settings</router-link>
     </nav>
-    <div class="indicatorbars">
-      <div class="indicatorbar1" :class="{indicatorclick1: ordersActive1}"></div>
-      <div class="indicatorbar2" :class="{indicatorclick2: ordersActive2}"></div>
-    </div>
     <hr class="horizontalrule">
     <div class="searchbutton">
     <input type="search" class="searchbar" placeholder="Search">
@@ -109,22 +105,10 @@ export default {
     name: "settings",
     data() {
         return {
-            ordersActive1: true,
-            ordersActive2: false,
             showModal: false
         };
     },
     methods: {
-        changeFirst() {
-            this.ordersActive1 = true;
-            this.ordersActive2 = false;
-        },
-
-        changeSecond() {
-            this.ordersActive1 = false;
-            this.ordersActive2 = true;
-        },
-
         openModal() {
             this.showModal = true;
         },
@@ -154,6 +138,8 @@ font-family: 'DM Sans';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
+min-width: auto;
+min-height: 52px;
 line-height: 24px;
 color: #777777;  
 margin: 0 32px 0 0;
@@ -165,54 +151,18 @@ font-family: 'DM Sans';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
+min-width: auto;
+min-height: 52px;
 line-height: 24px;
 color: #777777;  
 margin: 0 32px 0 0;
 text-decoration: none;
 }
 
-.indicatorbars{
-display: flex;
-flex-direction: row;
-margin: 12px 0 0 368px;
-white-space: nowrap;
-}
-
-.indicatorbar1{
-width: 80px;
-height: 4px;
-min-width: 80px;
-min-height: 4px;
-border-radius: 8px 8px 0px 0px;  
-margin: 0 32px 0 8px;
-}
-
-.indicatorbar2{
-width: 80px;
-height: 4px;
-min-width: 80px;
-min-height: 4px;
-border-radius: 8px 8px 0px 0px;  
-margin: 0 32px 0 15px;
-}
-
-
-.indicatorclick1{
-background: #D9B608;
-}
-
-.indicatorclick2{
-background: #D9B608;
-}
-
-.ordersclick1{
+a.nuxt-link-active{
 font-weight: 700;
 color: #000000;
-}
-
-.ordersclick2{
-font-weight: 700;
-color: #000000;
+border-bottom: 4px solid #D9B608;
 }
 
 .horizontalrule{
@@ -281,7 +231,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 139px;
+margin: 0 0 0 148px;
 }
 
 .number{
@@ -301,7 +251,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 80px;
+margin: 0 0 0 97px;
 }
 
 .date{
@@ -311,7 +261,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 140px;
+margin: 0 0 0 150px;
 }
 
 .data{

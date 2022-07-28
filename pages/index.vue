@@ -18,6 +18,10 @@
     name: 'index',
     layout: 'login',
 
+    mounted() {
+       console.log('component mounted.')
+    },
+
     data() {
       return {
         adminName: '',

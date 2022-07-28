@@ -197,7 +197,6 @@ top: 272px;
 border: 1px solid #E4E4E4;
 border-radius: 8px;
 margin: 0 32px 0 0;
-background: url("");
 }
 
 .moreinfo{
@@ -264,7 +263,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 64px;
+margin: 0 0 0 47px;
 }
 
 .headdata3{
@@ -274,7 +273,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 64px;
+margin: 0 0 0 71px;
 }
 
 .headdata4{
@@ -284,7 +283,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 64px;
+margin: 0 0 0 56px;
 }
 
 .headdata5{
@@ -294,7 +293,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 64px;
+margin: 0 0 0 59px;
 }
 
 .headdata6{
@@ -304,7 +303,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 64px;
+margin: 0 0 0 62px;
 }
 
 .headdata7{
