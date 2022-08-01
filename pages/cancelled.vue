@@ -32,7 +32,7 @@
 
 <script>
 export default {
-    name: "cancelledorders",
+    name: "cancelled",
     layout: "orders",
     data() {
         return {

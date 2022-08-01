@@ -74,7 +74,7 @@
           </div>
         </div>
         <div class="second-column">
-          <img src="delivered.png" class="column-img">
+          <img src="orders-img.png" class="column-img">
         </div>
       </div>
     </div>  
@@ -83,7 +83,7 @@
 
 <script>
 export default {
-  name: 'activeorders',
+  name: 'active',
   layout: 'orders',
   data() {
     return {
@@ -337,7 +337,7 @@ font-weight: 400;
 font-size: 16px;
 line-height: 24px;
 color: #CC5500;
-margin: 0 0 0 24px;
+margin: 0 0 0 25px;
 }
 
 .headdata6{

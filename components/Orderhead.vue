@@ -3,10 +3,10 @@
     <h1 class="orders">Orders</h1>
     <h2 class="manage">Manage all your dispatchers, assign orders, and track orders here.</h2>
     <nav class="navbar">
-      <router-link to="/activeorders" class="navlink1">Active Orders</router-link>
-      <router-link to="/deliveredorders" class="navlink2">Delivered</router-link>
-      <router-link to="/pendingorders" class="navlink3">Pending Orders</router-link>
-      <router-link to="/cancelledorders" class="navlink4">Cancelled</router-link>
+      <router-link to="/active" class="navlink1">Active Orders</router-link>
+      <router-link to="/delivered" class="navlink2">Delivered</router-link>
+      <router-link to="/pending" class="navlink3">Pending Orders</router-link>
+      <router-link to="/cancelled" class="navlink4">Cancelled</router-link>
     </nav>
     <hr class="horizontalrule">
     <div class="infobar">

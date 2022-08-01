@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div class="viewcontainer1" :class="{viewcontainer: showMore}" v-for="(details, index) in packageDetails" :key="index">
+  <div class="viewcontainer1" :class="{viewcontainer: details.showMore}" v-for="(details, index) in packageDetails" :key="index">
         <div class="first-column">
           <div class="details-section">
             <p class="pick-up">Pickup<span class="pick" v-if="details.showMore">(Local)</span></p>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="second-column">
-          <img :src="details.img[details.number]" :class="{columnimg: showMore}">
+          <img :src="details.img[details.number]" :class="{columnimg: details.showMore}">
         </div>
       </div>
       <pendingmodal v-if="showModal" @closeModal="offModal()"  />
@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  name: 'pendingorders',
+  name: 'pending',
   layout: 'orders',
 
   data() {
