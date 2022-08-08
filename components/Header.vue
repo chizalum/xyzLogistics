@@ -1,12 +1,15 @@
 <template>
   <div>
     <div class="topbar">
-      <img src="bell.png" alt="bell" class="bell" />
+      <img src="bell.svg" alt="bell" class="bell" />
       <h1 class="name">David Odu</h1>
-      <img src="online.png" alt="online" class="online" />
+      <img src="online.svg" alt="online" class="online" />
     </div>
     <div class="sidebar">
-      <img src="xyzlogo.png" alt="logo" class="logo" />
+      <div class="logo-container">
+        <img src="xyzlogo.svg" alt="logo" class="logo" />
+        <p class="xyz-text">Xyz Logistics</p>
+      </div>
       <hr class="siderule" />
       <nav class="navbar">
         <div @click="iconView()">
@@ -15,10 +18,10 @@
               :src="dashimage[dashCurrent]"
               alt="dashboard"
               class="dashboardimg"
-            /><span class="dashboardtext">Dashboard</span></nuxt-link
+            />Dashboard</nuxt-link
           >
         </div>
-        <div>
+        <div @mouseover="startHover()" @mouseleave="stopHover()">
           <div class="navitem2">
             <img
               :src="orderimage[orderCurrent]"
@@ -68,10 +71,13 @@
               :src="agentsimage[agentsCurrent]"
               alt="agents"
               class="agentsimg"
-            /><span class="agentstext">Agents</span></nuxt-link
+            />Agents</nuxt-link
           >
         </div>
-        <div>
+        <div
+          @mouseover="startHoverVehicles()"
+          @mouseleave="stopHoverVehicles()"
+        >
           <div class="navitem4">
             <img
               :src="vehiclesimage[vehiclesCurrent]"
@@ -115,7 +121,7 @@
               :src="settingsimage[settingsCurrent]"
               alt="settings"
               class="settingsimg"
-            /><span class="settingstext">Settings</span></nuxt-link
+            />Settings</nuxt-link
           >
         </div>
       </nav>
@@ -129,16 +135,16 @@ export default {
 
   data() {
     return {
-      dashimage: ["dashboard.png", "dashActive.png"],
+      dashimage: ["dashboard.svg", "dashActive.svg"],
       dashCurrent: 0,
-      orderimage: ["orders.png", "ordersActive.png"],
+      orderimage: ["orders.svg", "ordersActive.svg"],
       orderCurrent: 0,
-      agentsimage: ["agents.png", "agentsActive.png"],
+      agentsimage: ["agents.svg", "agentsActive.svg"],
       agentsCurrent: 0,
       agentsActive: false,
-      vehiclesimage: ["vehicles.png", "vehiclesActive.png"],
+      vehiclesimage: ["vehicles.svg", "vehiclesActive.svg"],
       vehiclesCurrent: 0,
-      settingsimage: ["settings.png", "settingsActive.png"],
+      settingsimage: ["settings.svg", "settingsActive.svg"],
       settingsCurrent: 0,
       settingsActive: false,
       show: false,
@@ -217,6 +223,58 @@ export default {
       this.vehiclesCurrent = 0;
     },
 
+    startHover() {
+      this.orderCurrent = 1;
+      this.show = true;
+    },
+
+    stopHover() {
+      if (this.$route.name.includes("active")) {
+        this.orderCurrent = 1;
+        this.show = true;
+        this.view = false;
+      } else if (this.$route.name.includes("cancelled")) {
+        this.orderCurrent = 1;
+        this.show = true;
+        this.view = false;
+      } else if (this.$route.name.includes("delivered")) {
+        this.orderCurrent = 1;
+        this.show = true;
+        this.view = false;
+      } else if (this.$route.name.includes("pending")) {
+        this.orderCurrent = 1;
+        this.show = true;
+        this.view = false;
+      } else {
+        this.show = false;
+        this.orderCurrent = 0;
+      }
+    },
+
+    startHoverVehicles() {
+      this.vehiclesCurrent = 1;
+      this.view = true;
+    },
+
+    stopHoverVehicles() {
+      if (this.$route.name.includes("bikes")) {
+        this.vehiclesCurrent = 1;
+        this.view = true;
+        this.show = false;
+      } else if (this.$route.name.includes("vans")) {
+        this.vehiclesCurrent = 1;
+        this.view = true;
+        this.show = false;
+      } else if (this.$route.name.includes("trucks")) {
+        this.vehiclesCurrent = 1;
+        this.view = true;
+        this.show = false;
+      } else {
+        this.view = false;
+        this.vehiclesCurrent = 0;
+      }
+    },
+
     changeVehicles() {
       if (this.vehiclesCurrent < 1) {
         this.vehiclesCurrent++;
@@ -264,8 +322,8 @@ export default {
 
 .online {
   margin: auto 64px auto 0;
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
 }
 
 .sidebar {
@@ -280,12 +338,22 @@ export default {
   box-shadow: 0px 6px 18px 0px #0000000a;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  margin: 48px 0 48px 48px;
+}
+
 .logo {
-  width: 172.17px;
-  height: 32px;
-  margin-top: 48px;
-  margin-left: 48px;
-  margin-bottom: 48px;
+  margin: 0 21px 0 0;
+}
+
+.xyz-text {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0 0 0 0;
 }
 
 .siderule {
@@ -309,11 +377,19 @@ export default {
 .navitem1 {
   margin: 32px 0 0 24px;
   display: flex;
+  align-items: center;
   flex-direction: row;
   background: #ffffff;
   width: 272px;
   height: 64px;
   text-decoration: none;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666666;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .navitem2 {
@@ -325,16 +401,25 @@ export default {
   height: 64px;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52) 5s;
 }
 
 .navitem3 {
   margin: 0 0 0 24px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   background: #ffffff;
   width: 272px;
   height: 64px;
   text-decoration: none;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666666;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .navitem4 {
@@ -346,21 +431,31 @@ export default {
   height: 64px;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .navitem5 {
   margin: 24px 0 0 24px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   background: #ffffff;
   width: 272px;
   height: 64px;
   text-decoration: none;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #666666;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 a.nuxt-link-exact-active {
   background: #fbfbfb;
   border-left: 6px solid #d9b608;
+  font-size: 18px;
   font-weight: 500;
   color: #000000;
   font-family: "DM Sans";
@@ -370,7 +465,7 @@ a.nuxt-link-exact-active {
 .dashboardimg {
   width: 25px;
   height: 21.49px;
-  margin: auto 0 auto 29px;
+  margin: auto 21px auto 29px;
 }
 
 .dashboardtext {
@@ -401,21 +496,10 @@ a.nuxt-link-exact-active {
   text-decoration: none;
 }
 
-.agentstext {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #666666;
-  margin: auto auto auto 21px;
-  text-decoration: none;
-}
-
 .agentsimg {
   width: 25px;
   height: 25.6px;
-  margin: auto 0 auto 29px;
+  margin: auto 21px auto 29px;
 }
 
 .vehiclestext {
@@ -435,21 +519,10 @@ a.nuxt-link-exact-active {
   margin: auto 0 auto 29px;
 }
 
-.settingstext {
-  font-family: "DM Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #666666;
-  margin: auto auto auto 21px;
-  text-decoration: none;
-}
-
 .settingsimg {
   width: 25px;
   height: 25.6px;
-  margin: auto 0 auto 29px;
+  margin: auto 21px auto 29px;
 }
 
 .orderDD {
@@ -489,6 +562,7 @@ a.nuxt-link-exact-active {
   color: #666666;
   width: 215px;
   height: 56px;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .orderitems2 {
@@ -502,6 +576,7 @@ a.nuxt-link-exact-active {
   color: #666666;
   width: 215px;
   height: 56px;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .orderitems3 {
@@ -515,6 +590,7 @@ a.nuxt-link-exact-active {
   color: #666666;
   width: 215px;
   height: 56px;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .orderitems4 {
@@ -528,6 +604,7 @@ a.nuxt-link-exact-active {
   color: #666666;
   width: 215px;
   height: 56px;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .vehicleitem1 {
@@ -542,6 +619,7 @@ a.nuxt-link-exact-active {
   width: 215px;
   height: 56px;
   text-decoration: none;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .vehicleitem2 {
@@ -556,6 +634,7 @@ a.nuxt-link-exact-active {
   width: 215px;
   height: 56px;
   text-decoration: none;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .vehicleitem3 {
@@ -570,6 +649,7 @@ a.nuxt-link-exact-active {
   width: 215px;
   height: 56px;
   text-decoration: none;
+  transition: 0.3s cubic-bezier(1, 0.39, 1, 2.52);
 }
 
 .vtext {

@@ -1,50 +1,53 @@
 <template>
-  <div class="fullpage">
-    <h1 class="welcome">Welcome back David</h1>
-    <div class="stats">
-      <div class="revenue">
-        <p class="total">Total Revenue</p>
-        <p class="amount">₦200k</p>
-        <div class="facts">
-          <p class="up">Up by 50k this month</p>
-          <img src="greenarrow.png" alt="uparrow" class="greenarrow" />
+  <div>
+    <div class="fullpage">
+      <h1 class="welcome">Welcome back David</h1>
+      <div class="stats">
+        <div class="revenue">
+          <p class="total">Total Revenue</p>
+          <p class="amount">₦200k</p>
+          <div class="facts">
+            <p class="up">Up by 50k this month</p>
+            <img src="greenarrow.png" alt="uparrow" class="greenarrow" />
+          </div>
+        </div>
+        <div class="active">
+          <p class="order">Active Orders</p>
+          <p class="twohundred">200</p>
+          <div class="fact">
+            <p class="down">Down by 50k this month</p>
+            <img src="redarrow.png" alt="downarrow" class="redarrow" />
+          </div>
+        </div>
+        <div class="pending">
+          <p class="pend">Pending Orders</p>
+          <p class="fournine">49</p>
+        </div>
+        <div class="riders">
+          <p class="ride">Active Riders</p>
+          <p class="seveno">70</p>
         </div>
       </div>
-      <div class="active">
-        <p class="order">Active Orders</p>
-        <p class="twohundred">200</p>
-        <div class="fact">
-          <p class="down">Down by 50k this month</p>
-          <img src="redarrow.png" alt="downarrow" class="redarrow" />
-        </div>
+      <hr class="horizontalrule" />
+      <div class="barchartdiv">
+        <BarChart
+          :chartData="chartData"
+          :options="chartOptions"
+          class="bar-chart"
+        />
       </div>
-      <div class="pending">
-        <p class="pend">Pending Orders</p>
-        <p class="fournine">49</p>
+      <div class="vehiclesdiv">
+        <LineChart
+          :chartData="lineChartData"
+          :options="linechartOptions"
+          class="line-chart"
+        />
+        <PieChart
+          :chartData="pieChartData"
+          :options="piechartOptions"
+          class="pie-chart"
+        />
       </div>
-      <div class="riders">
-        <p class="ride">Active Riders</p>
-        <p class="seveno">70</p>
-      </div>
-    </div>
-    <hr class="horizontalrule" />
-    <div class="barchartdiv">
-       <BarChart
-        :chartData="chartData"
-        :options="chartOptions"
-        class="bar-chart"
-      />
-    </div>
-    <div class="vehiclesdiv">
-       <LineChart
-        :chartData="lineChartData"
-        :options="linechartOptions"
-        class="line-chart"
-      />
-      <PieChart
-        :chartData="pieChartData"
-        :options="piechartOptions"
-        class="pie-chart" />
     </div>
   </div>
 </template>
@@ -86,11 +89,10 @@ export default {
             label: "No. Damaged Vehicles",
             data: [23, 30, 200],
             backgroundColor: ["#FFD60A", "#7FB069", "#CC5500"],
-            hoverBackgroundColor: ["#FFD60A", "#7FB069", "#CC5500"]
+            hoverBackgroundColor: ["#FFD60A", "#7FB069", "#CC5500"],
           },
         ],
       },
-
 
       chartData: {
         labels: [
@@ -105,12 +107,12 @@ export default {
           "Dec 29",
           "Dec 30",
           "Dec 31",
-          "Dec 32",
-          "Dec 33",
-          "Dec 34",
-          "Dec 35",
-          "Dec 21",
-          "Dec 36",
+          "Jan 01",
+          "Jan 02",
+          "Jan 03",
+          "Jan 04",
+          "Jan 05",
+          "Jan 06",
         ],
         datasets: [
           {
@@ -146,9 +148,9 @@ export default {
                 display: false,
                 font: {
                   size: 14,
-                  family: 'DM Sans',
+                  family: "DM Sans",
                   weight: "bold",
-                }
+                },
               },
               gridLines: {
                 display: false,
@@ -183,9 +185,9 @@ export default {
                 display: true,
                 font: {
                   size: 12,
-                  family: 'DM Sans',
-                  weight: 'regular',
-                }
+                  family: "DM Sans",
+                  weight: "regular",
+                },
               },
               gridLines: {
                 display: false,
@@ -217,11 +219,11 @@ export default {
           display: false,
           font: {
             size: 12,
-            family: 'DM Sans',
-            weight: 'regular',
-          }
+            family: "DM Sans",
+            weight: "regular",
+          },
         },
-        datasets:[{}]
+        datasets: [{}],
       },
     };
   },
@@ -248,12 +250,6 @@ export default {
   height: 240px;
   width: 381px;
   background-color: #ffffff;
-}
-
-.fullpage {
-  background: #fffefa;
-  height: 100vh;
-  width: 100vw;
 }
 
 .welcome {
