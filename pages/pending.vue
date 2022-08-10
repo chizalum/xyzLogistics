@@ -44,7 +44,7 @@
             <p class="locator-name">Ajibike Lola</p>
           </div>
           <div class="fourth-row">
-            <img src="phone.png" class="phone" />
+            <img src="phone.svg" class="phone" />
             <p class="number">07064783993</p>
           </div>
           <div class="fifth-row">
@@ -53,7 +53,7 @@
             <p class="locator-name">Ajibike Lola</p>
           </div>
           <div class="sixth-row">
-            <img src="phone.png" class="phone" />
+            <img src="phone.svg" class="phone" />
             <p class="number">07064783993</p>
           </div>
           <hr class="info-rule" />

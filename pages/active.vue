@@ -783,5 +783,6 @@ export default {
   height: 350px;
   margin: auto 0 auto 0;
 }
+
 </style>
 

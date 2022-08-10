@@ -16,7 +16,9 @@
       </div>
       <div class="moreinfo">
         <div class="infogroups">
-          <p class="infotext">Vehicle</p>
+          <p class="infotext">
+            Vehicle
+          </p>
           <img src="droparrow.png" class="droparrow" alt="droparrow" />
         </div>
         <div class="infogroups">
@@ -187,4 +189,5 @@ a.nuxt-link-exact-active {
   width: 8px;
   margin: auto 0 auto 0;
 }
+
 </style>
